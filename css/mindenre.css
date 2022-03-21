@@ -1,0 +1,27 @@
+
+body{background-color: antiquewhite !important;
+   }
+
+h1{color:dimgray;
+    font-family: "Segoe Script"  }
+
+p{
+    padding: 0;
+    margin: 0;
+    font-size: xx-large;
+    font-family: Gabriola;
+}
+
+#nav{background-color:#6F9EBA!important;}
+
+hr{
+    background-color: pink!important;
+    height: 2px!important;
+}
+
+
+h3{
+    font-family: Gabriola;
+    font-size: 45px!important;
+    font-weight: bold!important;
+}
