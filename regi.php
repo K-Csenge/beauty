@@ -15,6 +15,7 @@
 <h1>Regisztráció</h1>
 <hr>
 
+<!-- This is a comment -->
 
 <form action="regi_kuld.php" method="post">
     <label for="name">Név:</label>
@@ -28,7 +29,6 @@
         <option value="3"> Nem szeretném megadni </option>
     </select>
     <br>
-
 
     <label for="mail">Email:</label>
     <input type="email" name="email" id="mail"class="form-control"><br>
