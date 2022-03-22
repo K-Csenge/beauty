@@ -30,6 +30,7 @@
     </select>
     <br>
 
+<!--    Another comment -->
     <label for="mail">Email:</label>
     <input type="email" name="email" id="mail"class="form-control"><br>
 
