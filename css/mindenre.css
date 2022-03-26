@@ -1,11 +1,14 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: inherit;
 }
+
 body {
     background-color: antiquewhite !important;
 }
-#intro{
+
+#intro {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -13,6 +16,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 #post-header {
     padding: 1rem;
     width: 100%;
@@ -25,6 +29,41 @@ h1 {
     font-family: "Segoe Script", serif
 }
 
+h3 {
+    font-family: Gabriola, serif;
+    font-size: 45px !important;
+    line-height: 45px;
+    font-weight: bold !important;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00001A;
+    width: 100%;
+    height: 100vh;
+}
+
+.line h3::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 115%;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 3px;
+    transform: scale(0);
+    transition: transform 250ms ease-in;
+}
+
+.line h3:hover::after {
+    transform: scale(1);
+}
+
 p {
     padding: 0;
     margin: 0;
@@ -32,16 +71,27 @@ p {
     font-family: Gabriola, serif;
 }
 
-hr {
-    background-color: pink !important;
-    height: 2px !important;
+hr.animated {
+    width: 100%;
+    height: 4px;
+    animation: expand 5s infinite ease-in-out;
 }
 
+@keyframes expand {
+    0% {
+        transform: scaleX(0.2);
+    }
+    50% {
+        transform: scaleX(1);
+    }
+    100%{
+        transform: scaleX(0.2);
+    }
+}
 
-h3 {
-    font-family: Gabriola, serif;
-    font-size: 45px !important;
-    font-weight: bold !important;
+hr {
+    background-color: pink !important;
+    height: 2px;
 }
 
 /*#region NAVBAR STYLE */
@@ -71,3 +121,108 @@ h3 {
 }
 
 /*#endregion NAVBAR STYLE */
+
+:root {
+    --color-first: #65587f;
+    --color-second: #f18867;
+    --color-third: #e85f99;
+    --color-forth: #50bda1;
+    --block-width: 200px;
+    --block-height: 80px;
+    --border-width: 0.625rem;
+    --border-radius-outer: 8px;
+    --border-radius-inner: calc(var(--border-radius-outer) / 2);
+    --font-plain: "IBM Plex Sans", sans-serif;
+    --font-special: "Fredoka One", sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+/*body {*/
+/*    background: #f2f2f2;*/
+/*    color: #5e5e5e;*/
+/*    font-family: var(--font-plain);*/
+/*    height: 100vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+.rainbow {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: o-rotate-360 linear 8s infinite;
+    animation: o-rotate-360 linear 8s infinite;
+}
+.rainbow span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+.rainbow span:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 100%;
+}
+.rainbow span:first-child {
+    background: var(--color-first);
+}
+.rainbow span:first-child:after {
+    background: var(--color-second);
+}
+.rainbow span:last-child {
+    background: var(--color-third);
+}
+.rainbow span:last-child:after {
+    background: var(--color-forth);
+}
+
+.c-subscribe-box {
+    width: var(--block-width);
+    height: var(--block-height);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
+    border-radius: var(--border-radius-outer);
+}
+.c-subscribe-box__wrapper {
+    width: calc(100% - var(--border-width));
+    height: calc(100% - var(--border-width));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: antiquewhite;
+    padding: 1.2rem 1rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-inner);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@-webkit-keyframes o-rotate-360 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes o-rotate-360 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

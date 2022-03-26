@@ -24,7 +24,16 @@ $query->bind_result($post_id, $date, $body);
 <body>
 <div class="nav"></div>
 <div id="intro">
-    <h3><b>Köszöntelek</b></h3>
+    <div>
+
+        <div class="c-subscribe-box">
+            <div class="rainbow"><span></span><span></span></div>
+            <div class="c-subscribe-box__wrapper">
+                <h1>Köszöntelek</h1>
+            </div>
+        </div>
+    </div>
+
     <ul>
         <li>Nem tudod, milyen smink illik hozzád?</li>
         <li>Nem tudod, hogyan húzz tökéletes tusvonalat?</li>
