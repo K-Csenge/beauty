@@ -1,5 +1,5 @@
 window.onload = function(){
-    $.get("../fejlec.html", function(data){
-        $("#nav").html(data);
+    $.get("../fejlec.php", function(data){
+        $(".nav").html(data);
     })
 }

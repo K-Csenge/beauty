@@ -8,15 +8,14 @@
     <link rel="stylesheet" href="css/spec.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/fo.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div id="nav"></div>
+<div class="nav"></div>
 <h1>Regisztráció</h1>
 <hr>
 
 
-<form action="regi_kuld.php" method="post">
+<form action="" method="post">
     <label for="name">Név:</label>
     <input type="text" name="name" id="name" class="form-control"><br>
 
@@ -40,3 +39,34 @@
 </form>
 </body>
 </html>
+
+<?php
+
+require_once "csatlakozas.php";
+
+if(!$conn){
+    return;
+}
+
+if(isset($_POST)){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $gender = $_POST['neme'];
+
+    $test_email_stmt = "SELECT * FROM users WHERE email='$email';";
+    $query1 = mysqli_num_rows(mysqli_query($conn, $test_email_stmt));
+
+    if($query1 > 0){
+        echo "Ez az email mar foglalt";
+        echo "User: $name, with credentials: $email, $password, $gender";
+        echo $query1;
+        return;
+    }
+    $insert = mysqli_query($conn,"INSERT INTO users VALUES('' , '$name','$gender', '$email', '$password', 'n');");
+    echo "User inserted: $name, with credentials: $email, $password, $gender";
+    if($insert){
+        header("Location: index.php");
+    }
+
+}
