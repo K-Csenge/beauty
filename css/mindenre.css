@@ -1,27 +1,73 @@
-
-body{background-color: antiquewhite !important;
-   }
-
-h1{color:dimgray;
-    font-family: "Segoe Script"  }
-
-p{
+*{
     padding: 0;
     margin: 0;
-    font-size: xx-large;
-    font-family: Gabriola;
+}
+body {
+    background-color: antiquewhite !important;
+}
+#intro{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#post-header {
+    padding: 1rem;
+    width: 100%;
+    background-image: linear-gradient(antiquewhite, rgba(0, 0, 0, 0)), url(../adat/bej1.jpg);
+    background-size: cover;
 }
 
-#nav{background-color:#6F9EBA!important;}
+h1 {
+    color: dimgray;
+    font-family: "Segoe Script", serif
+}
 
-hr{
-    background-color: pink!important;
-    height: 2px!important;
+p {
+    padding: 0;
+    margin: 0;
+    font-size: 1.4rem;
+    font-family: Gabriola, serif;
+}
+
+hr {
+    background-color: pink !important;
+    height: 2px !important;
 }
 
 
-h3{
-    font-family: Gabriola;
-    font-size: 45px!important;
-    font-weight: bold!important;
+h3 {
+    font-family: Gabriola, serif;
+    font-size: 45px !important;
+    font-weight: bold !important;
 }
+
+/*#region NAVBAR STYLE */
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    background-color: #111;
+}
+
+/*#endregion NAVBAR STYLE */
