@@ -24,16 +24,8 @@ $query->bind_result($post_id, $date, $body);
 <body>
 <div class="nav"></div>
 <div id="intro">
-    <div>
-
-        <div class="c-subscribe-box">
-            <div class="rainbow"><span></span><span></span></div>
-            <div class="c-subscribe-box__wrapper">
-                <h1>Köszöntelek</h1>
-            </div>
-        </div>
-    </div>
-
+    <h3>Köszöntelek</h3>
+    <hr class="animated">
     <ul>
         <li>Nem tudod, milyen smink illik hozzád?</li>
         <li>Nem tudod, hogyan húzz tökéletes tusvonalat?</li>
@@ -42,20 +34,21 @@ $query->bind_result($post_id, $date, $body);
     <p><u>Segítek!</u></p>
     <p>Beauty tippek tőlem, neked!♥</p>
 </div>
-<div id="post-header">
-    <h3>Bejegyzések</h3>
+<div id="posts">
+    <div id="post-header">
+        <h3>Bejegyzések</h3>
+    </div>
+    <?php while ($query->fetch()): ?>
+        <article>
+            <hr>
+            <p><?php echo $body ?></p>
+            <div class="details">
+                <p><?php echo $date ?></p>
+            </div>
+            <hr>
+        </article>
+    <?php endwhile ?>s
 </div>
 
-
-<?php while ($query->fetch()): ?>
-    <article>
-        <hr>
-        <p><?php echo $body ?></p>
-        <div class="details">
-            <p><?php echo $date ?></p>
-        </div>
-        <hr>
-    </article>
-<?php endwhile ?>
 </body>
 </html>
