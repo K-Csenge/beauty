@@ -47,7 +47,7 @@ if(!isset($_SESSION['id'])){
     <div id="post-header">
         <h3>Bejegyzések</h3>
     </div>
-    <?php if(isset($_SESSION['id'])) { ?>
+    <?php if(isset($_SESSION['id']) && isset($_SESSION['admin'])) { ?>
         <a href="post.php"> Postolas</a>
     <?php } ?>
     <?php while ($query->fetch()): ?>
