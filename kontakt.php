@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['page'] = "contact";
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>

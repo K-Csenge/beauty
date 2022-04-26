@@ -1,14 +1,23 @@
 <?php
 
 require_once "csatlakozas.php";
-
 if (!$conn) {
     return;
 }
 
-$query = $conn->prepare("SELECT * FROM posts");
+$query = $conn->prepare("SELECT posts.id, username, text, date FROM posts INNER JOIN users ON posts.userid = users.id;");
 $query->execute();
-$query->bind_result($post_id, $date, $body);
+$query->bind_result($post_id, $username, $body, $date);
+
+session_start();
+
+$_SESSION['page'] = "index";
+
+if(!isset($_SESSION['id'])){
+    session_destroy();
+}
+
+
 
 ?>
 
@@ -24,7 +33,7 @@ $query->bind_result($post_id, $date, $body);
 <body>
 <div class="nav"></div>
 <div id="intro">
-    <h3>Köszöntelek</h3>
+    <h3>Köszöntelek<?php if(isset($_SESSION['id'])) echo " ".$_SESSION['fname']." ".$_SESSION['lname'][0].". !" ?></h3>
     <hr class="animated">
     <ul>
         <li>Nem tudod, milyen smink illik hozzád?</li>
@@ -38,16 +47,21 @@ $query->bind_result($post_id, $date, $body);
     <div id="post-header">
         <h3>Bejegyzések</h3>
     </div>
+    <?php if(isset($_SESSION['id'])) { ?>
+        <a href="post.php"> Postolas</a>
+    <?php } ?>
     <?php while ($query->fetch()): ?>
-        <article>
+        <article class="bottom-fade">
             <hr>
-            <p><?php echo $body ?></p>
-            <div class="details">
-                <p><?php echo $date ?></p>
+            <div id="post-content">
+                <p><?php echo $body ?></p>
+                <div class="details">
+                    <p><strong><?php echo $date ?></strong>, Posztolta: <i><?php echo $username ?></i></p>
+                </div>
             </div>
             <hr>
         </article>
-    <?php endwhile ?>s
+    <?php endwhile ?>
 </div>
 
 </body>
